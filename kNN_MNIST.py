@@ -36,7 +36,10 @@ def normalize(dataSet) :
    mins = dataSet.min(0)
    maxs = dataSet.max(0)
    ranges = maxs-mins
+   for i in range(len(ranges)) :
+   		if ranges[i] == 0 : ranges[i] = 1 # if range = 0 -> all same for that column
    returnSet = (dataSet - tile(mins, (m,1)))/tile(ranges, (m,1))
+   print returnSet
    return returnSet
 
 def main() :
@@ -52,6 +55,8 @@ def main() :
 		fileName = fileList[i]
 		dataSet[i, :] = img2vector(trainingAddress+"\\"+fileName)
 		labels.append(int(fileName.split('_')[0]))
+
+	dataSet = normalize(dataSet)
 
 	## Test Session ##
 	errorCount = 0.0;
