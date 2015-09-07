@@ -7,12 +7,11 @@ def img2vector(filename) :
    fr = open(filename)
    frlines = fr.readlines()
    m = len(frlines)
-   i = -1
+   i = 0
    for string in frlines :
-   	  i += 1
-   	  if len(string)==32 : print "fuck"
    	  for j in range(len(string)-1) :
            returnVect[0][i*(len(string)-1)+j] = int(string[j])
+	  i+=1
    return returnVect
 
 def KNN(inX, dataSet, labels, k) : # inX : input, labels : datasets' label
@@ -44,7 +43,7 @@ def main() :
 
 	## Training Session ##
 	labels = []
-	trainingAddress = "D:\Downloads\MLiA_SourceCode\machinelearninginaction\Ch02\digits\\trainingDigits"
+	trainingAddress = "D:\Downloads\MLiA_SourceCode\machinelearninginaction\Ch02\digits\\trainingDigits" # to user's Address
 	fileList = listdir(trainingAddress)
 	m = len(fileList)
 	dataSet = zeros((m, 1024))
@@ -56,7 +55,7 @@ def main() :
 
 	## Test Session ##
 	errorCount = 0.0;
-	testAddress = "D:\Downloads\MLiA_SourceCode\machinelearninginaction\Ch02\digits\\testDigits"
+	testAddress = "D:\Downloads\MLiA_SourceCode\machinelearninginaction\Ch02\digits\\testDigits" # to user's Address
 	testFileList = listdir(testAddress)
 	m = len(testFileList)
 
