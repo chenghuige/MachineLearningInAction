@@ -2,7 +2,7 @@ from numpy import *
 from math import log
 from os import listdir
 import re
-
+	
 ## This code uses Laplace-Smoothed Naive Bayes to perform Spam Classification ##
 ## Multi-Labels OK ##
 ## choose max_y P(y|x) => max_y P(x|y)P(y) = max_y (logP(y) + sigma logP(x_i|y)) ##
@@ -82,7 +82,6 @@ def getNBLabel(testWordVec, labelNum, wordProbArray, labelProbArray) :
 def testNB(trainData, trainLabel, testData, testLabel) :
 	dictionary = makeDictionary(trainData)
 	wordProbArray, labelProbArray = trainNB(trainData, trainLabel)
-	print wordProbArray, labelProbArray
 	labelNum = len(set(trainLabel))
 	testNum = len(testData)
 	errorCount = 0.0
