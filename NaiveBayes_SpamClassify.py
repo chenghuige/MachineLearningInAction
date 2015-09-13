@@ -1,7 +1,7 @@
 from numpy import *
 from math import log
 from os import listdir
-import re
+import re # regex
 	
 ## This code uses Laplace-Smoothed Naive Bayes to perform Spam Classification ##
 ## Multi-Labels OK ##
